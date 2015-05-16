@@ -10,6 +10,7 @@ class FoodCategoriesController < ApplicationController
   # GET /food_categories/1
   # GET /food_categories/1.json
   def show
+    @foods = @food_category.foods
   end
 
   # GET /food_categories/new
@@ -64,7 +65,7 @@ class FoodCategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food_category
-      @food_category = FoodCategory.find(params[:id])
+      @food_category = FoodCategory.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

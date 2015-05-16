@@ -9,6 +9,21 @@
   <strong>Image:</strong>
   <%= @food_category.image %>
 </p>
+<% @foods.each do |food| %>
+<p>
+  <strong>Name:</strong>
+  <%= food.name %>
+</p>
 
+<!-- <p>
+  <strong>Image:</strong>
+  <%= image_tag food.image %>
+</p> -->
+
+<!-- <p>
+  <strong>Days to expiration:</strong>
+  <%= food.days_to_expiration %>
+</p> -->
+<% end %>
 <%= link_to 'Edit', edit_food_category_path(@food_category) %> |
 <%= link_to 'Back', food_categories_path %>
