@@ -1,4 +1,4 @@
 class CustomNotification < ActiveRecord::Base
-  belongs_to :user
+  has_many :user
   belongs_to :food
 end

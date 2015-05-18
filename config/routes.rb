@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :purchases
   resources :custom_notifications
   resources :users
   resources :food_categories

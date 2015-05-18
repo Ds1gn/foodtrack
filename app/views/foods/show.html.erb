@@ -15,5 +15,9 @@
   <%= @food.days_to_expiration %>
 </p>
 
+<%= form_for(@custom_notification) do |f| %>
+<%= render '/custom_notifications/form' %>
+<% end %>
+
 <%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', foods_path %>

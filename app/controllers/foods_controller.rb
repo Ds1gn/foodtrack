@@ -10,6 +10,7 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
+    @custom_notification = CustomNotification.new
   end
 
   # GET /foods/new

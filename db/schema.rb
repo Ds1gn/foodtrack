@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518190614) do
+ActiveRecord::Schema.define(version: 20150518204422) do
 
   create_table "custom_notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20150518190614) do
   end
 
   add_index "foods", ["food_category_id"], name: "index_foods_on_food_category_id"
+
+  create_table "purchases", force: :cascade do |t|
+    t.string   "date_of_purchase"
+    t.string   "user_id"
+    t.string   "expiration_date"
+    t.string   "reminder_date"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

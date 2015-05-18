@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_of_purchase: MyString
+  user_id: MyString
+  expiration_date: MyString
+  reminder_date: MyString
+
+two:
+  date_of_purchase: MyString
+  user_id: MyString
+  expiration_date: MyString
+  reminder_date: MyString
