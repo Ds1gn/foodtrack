@@ -4063,3 +4063,510 @@ Processing by FoodCategoriesController#index as HTML
   [1m[36mFoodCategory Load (0.2ms)[0m  [1mSELECT "food_categories".* FROM "food_categories"[0m
   Rendered food_categories/index.html.erb within layouts/application (2.1ms)
 Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-18 14:43:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 17ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/foods" for ::1 at 2015-05-18 14:43:23 -0400
+Processing by FoodsController#index as HTML
+  [1m[35mFood Load (0.5ms)[0m  SELECT "foods".* FROM "foods"
+  Rendered foods/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 192ms (Views: 184.2ms | ActiveRecord: 0.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150518184750)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "password" varchar, "phone" varchar, "zip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150518184750"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCustomNotifications (20150518190614)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "custom_notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "food_id" integer, "days" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX "index_custom_notifications_on_user_id" ON "custom_notifications" ("user_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_custom_notifications_on_food_id" ON "custom_notifications" ("food_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150518190614"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_custom_notifications_on_food_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_custom_notifications_on_food_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_food_categories_on_slug' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_food_categories_on_slug' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_foods_on_food_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_foods_on_food_category_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCustomNotifications (20150518190614)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "custom_notifications"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20150518190614"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_food_categories_on_slug' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_food_categories_on_slug' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_foods_on_food_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_foods_on_food_category_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCustomNotifications (20150518190614)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "custom_notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "food_id" integer, "days" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_custom_notifications_on_user_id" ON "custom_notifications" ("user_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_custom_notifications_on_food_id" ON "custom_notifications" ("food_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150518190614"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_custom_notifications_on_food_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_custom_notifications_on_food_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_custom_notifications_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_food_categories_on_slug' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_food_categories_on_slug' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_foods_on_food_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_foods_on_food_category_id' AND type='index'
+
+
+
+Started GET "/foods" for ::1 at 2015-05-18 15:13:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FoodsController#index as HTML
+  [1m[35mFood Load (0.3ms)[0m  SELECT "foods".* FROM "foods"
+  Rendered foods/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 333ms (Views: 319.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/custom_notifications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-18 15:13:07 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-18 15:13:07 -0400
+
+
+Started GET "/assets/custom_notifications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-18 15:13:07 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-18 15:13:07 -0400
+
+
+Started GET "/food_categories/fruits" for ::1 at 2015-05-18 15:13:13 -0400
+Processing by FoodCategoriesController#show as HTML
+  Parameters: {"id"=>"fruits"}
+  [1m[36mFoodCategory Load (0.2ms)[0m  [1mSELECT  "food_categories".* FROM "food_categories" WHERE "food_categories"."slug" = ?  ORDER BY "food_categories"."id" ASC LIMIT 1[0m  [["slug", "fruits"]]
+  [1m[35mFood Load (0.2ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."food_category_id" = ?  [["food_category_id", 8]]
+  Rendered food_categories/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 123ms (Views: 64.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/food_categories" for ::1 at 2015-05-18 15:13:16 -0400
+Processing by FoodCategoriesController#index as HTML
+  [1m[36mFoodCategory Load (0.2ms)[0m  [1mSELECT "food_categories".* FROM "food_categories"[0m
+  Rendered food_categories/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/food_categories/vegetable" for ::1 at 2015-05-18 15:13:20 -0400
+Processing by FoodCategoriesController#show as HTML
+  Parameters: {"id"=>"vegetable"}
+  [1m[35mFoodCategory Load (0.1ms)[0m  SELECT  "food_categories".* FROM "food_categories" WHERE "food_categories"."slug" = ?  ORDER BY "food_categories"."id" ASC LIMIT 1  [["slug", "vegetable"]]
+  [1m[36mFood Load (0.1ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."food_category_id" = ?[0m  [["food_category_id", 9]]
+  Rendered food_categories/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/food_categories" for ::1 at 2015-05-18 15:13:22 -0400
+Processing by FoodCategoriesController#index as HTML
+  [1m[35mFoodCategory Load (0.1ms)[0m  SELECT "food_categories".* FROM "food_categories"
+  Rendered food_categories/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/food_categories/meat" for ::1 at 2015-05-18 15:13:23 -0400
+Processing by FoodCategoriesController#show as HTML
+  Parameters: {"id"=>"meat"}
+  [1m[36mFoodCategory Load (0.1ms)[0m  [1mSELECT  "food_categories".* FROM "food_categories" WHERE "food_categories"."slug" = ?  ORDER BY "food_categories"."id" ASC LIMIT 1[0m  [["slug", "meat"]]
+  [1m[35mFood Load (0.1ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."food_category_id" = ?  [["food_category_id", 11]]
+  Rendered food_categories/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/food_categories" for ::1 at 2015-05-18 15:13:25 -0400
+Processing by FoodCategoriesController#index as HTML
+  [1m[36mFoodCategory Load (0.2ms)[0m  [1mSELECT "food_categories".* FROM "food_categories"[0m
+  Rendered food_categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/food_categories/seafood" for ::1 at 2015-05-18 15:13:26 -0400
+Processing by FoodCategoriesController#show as HTML
+  Parameters: {"id"=>"seafood"}
+  [1m[35mFoodCategory Load (0.1ms)[0m  SELECT  "food_categories".* FROM "food_categories" WHERE "food_categories"."slug" = ?  ORDER BY "food_categories"."id" ASC LIMIT 1  [["slug", "seafood"]]
+  [1m[36mFood Load (0.1ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."food_category_id" = ?[0m  [["food_category_id", 12]]
+  Rendered food_categories/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/food_categories" for ::1 at 2015-05-18 15:13:31 -0400
+Processing by FoodCategoriesController#index as HTML
+  [1m[35mFoodCategory Load (0.1ms)[0m  SELECT "food_categories".* FROM "food_categories"
+  Rendered food_categories/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2015-05-18 15:14:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2015-05-18 15:14:50 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (30.0ms)
+  Rendered users/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 77ms (Views: 72.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for ::1 at 2015-05-18 15:15:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u923lw6dReMX1p8YqeC3l+1dAjMDY7v9ftSzyo+h1rIMg034TnV+La24DE8EoM+HORgswJpqOJmcPfBUHo4zCw==", "user"=>{"first_name"=>"Daniel", "last_name"=>"Schur", "email"=>"schurshaka@gmail.com", "password"=>"[FILTERED]", "phone"=>"3218488228", "zip"=>"32952"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password", "phone", "zip", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Daniel"], ["last_name", "Schur"], ["email", "schurshaka@gmail.com"], ["password", "foodtrack"], ["phone", "3218488228"], ["zip", "32952"], ["created_at", "2015-05-18 19:15:49.725717"], ["updated_at", "2015-05-18 19:15:49.725717"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for ::1 at 2015-05-18 15:15:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2015-05-18 15:15:53 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 44ms (Views: 43.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/preference" for ::1 at 2015-05-18 15:16:12 -0400
+
+ActionController::RoutingError (No route matches [GET] "/preference"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (83.6ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (52.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (115.1ms)
+
+
+Started GET "/preferences" for ::1 at 2015-05-18 15:16:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/preferences"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (79.4ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (45.2ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/DanSchur/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (106.8ms)
+
+
+Started GET "/custom_notifications" for ::1 at 2015-05-18 15:16:25 -0400
+Processing by CustomNotificationsController#index as HTML
+  [1m[36mCustomNotification Load (0.2ms)[0m  [1mSELECT "custom_notifications".* FROM "custom_notifications"[0m
+  Rendered custom_notifications/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/custom_notifications/new" for ::1 at 2015-05-18 15:16:27 -0400
+Processing by CustomNotificationsController#new as HTML
+  Rendered custom_notifications/_form.html.erb (4.4ms)
+  Rendered custom_notifications/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 53ms (Views: 49.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/custom_notifications" for ::1 at 2015-05-18 15:17:02 -0400
+Processing by CustomNotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3fLko9EZA9wR15hyAn8AhHB5ZLBjK39BxhIkDxbNWD9qrB7MkfE4Equ5CyWvP3iUpDxKQ/oi/CUk+2eRh+K9hg==", "custom_notification"=>{"user_id"=>"Daniel Schur", "food_id"=>"9", "days"=>"1"}, "commit"=>"Create Custom notification"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "custom_notifications" ("user_id", "food_id", "days", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 0], ["food_id", 9], ["days", 1], ["created_at", "2015-05-18 19:17:02.359786"], ["updated_at", "2015-05-18 19:17:02.359786"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/custom_notifications/1
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/custom_notifications/1" for ::1 at 2015-05-18 15:17:02 -0400
+Processing by CustomNotificationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomNotification Load (0.1ms)[0m  [1mSELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+  [1m[36mFood Load (0.2ms)[0m  [1mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered custom_notifications/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 54ms (Views: 52.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/custom_notifications/1/edit" for ::1 at 2015-05-18 15:17:21 -0400
+Processing by CustomNotificationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCustomNotification Load (0.1ms)[0m  SELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered custom_notifications/_form.html.erb (1.7ms)
+  Rendered custom_notifications/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/custom_notifications/1" for ::1 at 2015-05-18 15:17:27 -0400
+Processing by CustomNotificationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vOuSLjzGqxtgWDB2g6bTWRR4ANtmsUznalB2dd7uq9oLtWhBfC6Q1do2oyEu5qtJwD0uKP+4z4OIuTXrT8FOYw==", "custom_notification"=>{"user_id"=>"1", "food_id"=>"9", "days"=>"1"}, "commit"=>"Update Custom notification", "id"=>"1"}
+  [1m[36mCustomNotification Load (0.1ms)[0m  [1mSELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "custom_notifications" SET "user_id" = ?, "updated_at" = ? WHERE "custom_notifications"."id" = ?[0m  [["user_id", 1], ["updated_at", "2015-05-18 19:17:27.558003"], ["id", 1]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/custom_notifications/1
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/custom_notifications/1" for ::1 at 2015-05-18 15:17:27 -0400
+Processing by CustomNotificationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomNotification Load (0.1ms)[0m  [1mSELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFood Load (0.1ms)[0m  [1mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered custom_notifications/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+
+
+Started GET "/custom_notifications/1/edit" for ::1 at 2015-05-18 15:19:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CustomNotificationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCustomNotification Load (0.1ms)[0m  SELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered custom_notifications/_form.html.erb (18.5ms)
+  Rendered custom_notifications/edit.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 229ms (Views: 200.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/custom_notifications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/food_categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/scaffold.self-83b741db49389dc7cfdf85bf7537a0219cce48e085c4116afc83d55c9af47c78.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/foods.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/scaffolds.self-077839ea34d9fcfd8ccd1cf521aef31c51e67ff3dd140efaf91bb9a5b5eb53c6.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/custom_notifications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/food_categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/foods.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-18 15:19:34 -0400
+
+
+Started GET "/custom_notifications/1" for ::1 at 2015-05-18 15:19:40 -0400
+Processing by CustomNotificationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomNotification Load (0.1ms)[0m  [1mSELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFood Load (0.5ms)[0m  [1mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered custom_notifications/show.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 99ms (Views: 96.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/custom_notifications" for ::1 at 2015-05-18 15:19:46 -0400
+Processing by CustomNotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S51noxgm5o3aIKv4ruPWAvtqSw/nrW2TWPNWK61iS0P8w53MWM7dQ2BOOK8Do64SLy9l/H6k7ve6GhW1PE2u+g==", "custom_notification"=>{"user_id"=>"1", "food_id"=>"9", "days"=>"1"}, "commit"=>"Create Custom notification"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "custom_notifications" ("user_id", "food_id", "days", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["food_id", 9], ["days", 1], ["created_at", "2015-05-18 19:19:46.892121"], ["updated_at", "2015-05-18 19:19:46.892121"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/custom_notifications/2
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/custom_notifications/2" for ::1 at 2015-05-18 15:19:46 -0400
+Processing by CustomNotificationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCustomNotification Load (0.1ms)[0m  [1mSELECT  "custom_notifications".* FROM "custom_notifications" WHERE "custom_notifications"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFood Load (0.1ms)[0m  [1mSELECT  "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered custom_notifications/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.2ms)

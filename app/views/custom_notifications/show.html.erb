@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @custom_notification.user %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @custom_notification.food %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @custom_notification.days %>
+</p>
+
+<%= link_to 'Edit', edit_custom_notification_path(@custom_notification) %> |
+<%= link_to 'Back', custom_notifications_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Custom Notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Food</th>
+      <th>Days</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @custom_notifications.each do |custom_notification| %>
+      <tr>
+        <td><%= custom_notification.user %></td>
+        <td><%= custom_notification.food %></td>
+        <td><%= custom_notification.days %></td>
+        <td><%= link_to 'Show', custom_notification %></td>
+        <td><%= link_to 'Edit', edit_custom_notification_path(custom_notification) %></td>
+        <td><%= link_to 'Destroy', custom_notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custom notification', new_custom_notification_path %>
