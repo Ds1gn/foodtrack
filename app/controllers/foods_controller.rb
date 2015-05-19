@@ -11,6 +11,10 @@ class FoodsController < ApplicationController
   # GET /foods/1.json
   def show
     @custom_notification = CustomNotification.new
+
+    # @custom_notification = Food.find(:id)
+
+    # @custom_notification.save
   end
 
   # GET /foods/new
