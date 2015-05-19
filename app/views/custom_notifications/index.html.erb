@@ -16,7 +16,7 @@
     <% @custom_notifications.each do |custom_notification| %>
       <tr>
         <td><%= custom_notification.user %></td>
-        <td><%= custom_notification.food %></td>
+        <td><%= custom_notification.food.try(:name) %></td>
         <td><%= custom_notification.days %></td>
         <td><%= link_to 'Show', custom_notification %></td>
         <td><%= link_to 'Edit', edit_custom_notification_path(custom_notification) %></td>

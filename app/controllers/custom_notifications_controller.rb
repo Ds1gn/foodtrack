@@ -5,12 +5,13 @@ class CustomNotificationsController < ApplicationController
   # GET /custom_notifications.json
   def index
     @custom_notifications = CustomNotification.all
+
   end
 
   # GET /custom_notifications/1
   # GET /custom_notifications/1.json
   def show
-    @name_of_food = Food.find(params[:id])
+    @notification = CustomNotification.find(params[:id])
    
   end
 
@@ -21,11 +22,14 @@ class CustomNotificationsController < ApplicationController
 
   # GET /custom_notifications/1/edit
   def edit
+    @notification = CustomNotification.find(params[:id])
+    @food = @notification.food
   end
 
   # POST /custom_notifications
   # POST /custom_notifications.json
   def create
+    
     @custom_notification = CustomNotification.new(custom_notification_params)
 
     respond_to do |format|

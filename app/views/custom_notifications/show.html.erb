@@ -2,12 +2,12 @@
 
 <p>
   <strong>Food:</strong>
-  <%= @name_of_food.name %>
+  <%= @notification.food.name %>
 </p>
 
 <p>
   <strong>Days:</strong>
-  <%= @custom_notification.days %>
+  <%= @notification.days %>
 </p>
 
 <%= link_to 'Edit', edit_custom_notification_path(@custom_notification) %> |
