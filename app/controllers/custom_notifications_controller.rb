@@ -10,7 +10,8 @@ class CustomNotificationsController < ApplicationController
   # GET /custom_notifications/1
   # GET /custom_notifications/1.json
   def show
-    @name_of_food = @food.find_by_id[:id]
+    @name_of_food = Food.find(params[:id])
+   
   end
 
   # GET /custom_notifications/new

@@ -12,11 +12,18 @@
 <% @foods.each do |food| %>
 <p>
   <strong>Name:</strong>
-  <%= food.name %>
+  <%= @food %>
 </p>
+<p>
+  <strong>Category:</strong>
+  <%= @custom_notification.name %>
+</p>
+
 <p>
 <%= link_to food.name, food %>
 </p>
+
+
 
 <!-- <p>
   <strong>Image:</strong>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518204422) do
+ActiveRecord::Schema.define(version: 20150519004625) do
 
   create_table "custom_notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150518204422) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "food_category_id"
+    t.string   "rails"
+    t.string   "c"
   end
 
   add_index "foods", ["food_category_id"], name: "index_foods_on_food_category_id"
